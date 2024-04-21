@@ -1,5 +1,7 @@
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +18,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex flex-row h-screen gap-4">
+          <div className="border-r-4 border-white rounded-2xl p-5">
+            <Link className="text-6xl " href={"/"}>
+              Clickspy
+            </Link>
+            <Navbar
+              navbartitle={<h1 className="text-2xl font-bold">blablabla</h1>}
+            />
+          </div>
+          <div className="m-5">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
